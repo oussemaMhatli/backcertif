@@ -125,8 +125,8 @@ export class UserService {
       port: 465,
       secure: true,
       auth: {
-        user: 'oussemamhatli62@gmail.com',
-        pass: 'vkzocjpnizudjcbl',
+        user: 'alouimariem285@gmail.com',
+        pass: 'hlbzrytgfjjujbie',
       },
     });
     const mailOptions = {
