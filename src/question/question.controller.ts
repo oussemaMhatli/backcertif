@@ -41,8 +41,12 @@ export class QuestionController {
   ): Promise<Question> {
     return await this.QService.updateCat(id, updateCat);
   }
-  @Get('/findCAt/:cat')
-  async findOneFemail(@Param('cat') cat: string): Promise<any> {
-    return this.QService.findQByN(cat);
+  @Get('/findCAt/:cat/:lev')
+  async findcatlev(@Param('cat') cat: string,@Param('lev') lev: number): Promise<any> {
+    return this.QService.findQByN(cat, lev);
+  }
+  @Get('/findcat/:cat')
+  async findOnecat(@Param('cat') cat: string): Promise<any> {
+    return this.QService.findcat(cat);
   }
 }

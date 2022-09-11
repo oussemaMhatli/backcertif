@@ -8,6 +8,10 @@ import { FileController } from './file/file.controller';
 import { QuestionModule } from './question/question.module';
 import { ConfigModule } from '@nestjs/config';
 import { MailModule } from './mail/mail.module';
+import { ResultController } from './result/result.controller';
+import { ResultModule } from './result/result.module';
+import { MessageController } from './message/message.controller';
+import { MessageModule } from './message/message.module';
 
 
 @Module({
@@ -18,6 +22,8 @@ import { MailModule } from './mail/mail.module';
     QuestionModule,
     ConfigModule.forRoot(),
     MailModule,
+    ResultModule,
+    MessageModule,
   ],
 
   controllers: [AppController, FileController],

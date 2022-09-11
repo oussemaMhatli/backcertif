@@ -11,7 +11,7 @@ export class QuestionService {
   ) {}
 
   async createC(Ques: Question): Promise<any> {
-    console.log('aaaaaaaaa',Ques)
+    console.log('aaaaaaaaa', Ques);
     return await new this.QModel({
       ...Ques,
       createdAt: new Date(),
@@ -29,7 +29,10 @@ export class QuestionService {
   async updateCat(id: string, update: Question): Promise<any> {
     return await this.QModel.findByIdAndUpdate(id, update).exec();
   }
-  async findQByN(categorie): Promise<any> {
-    return this.QModel.find({ categorie }).exec();
+  async findQByN(cat: string, lev: number): Promise<any> {
+    return this.QModel.find({ categorie: cat, level: lev }).exec();
+  }
+  async findcat(cat: string): Promise<any> {
+    return this.QModel.find({ categorie: cat }).exec();
   }
 }

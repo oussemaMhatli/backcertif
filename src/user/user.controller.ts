@@ -44,11 +44,11 @@ export class UserController {
   async deleteApp(@Param('id') id: string) {
     return await this.userservice.delete(id);
   }
-  @Put(':id')
+  @Put('/up/:id')
   async updateForm(
     @Param('id') id: string,
     @Body() updateCat,
-  ): Promise<Categori> {
+  ): Promise<any> {
     return await this.userservice.updateCat(id, updateCat);
   }
   @Get('/one/:id')
