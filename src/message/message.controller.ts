@@ -43,4 +43,12 @@ export class MessageController {
   async upda(@Param('id') id: string): Promise<any> {
     return this.msgservice.updatevisbysender(id);
   }
+  @Get('/f/:id')
+  async find(@Param('id') id: string): Promise<any> {
+    return this.msgservice.findByids(id);
+  }
+  @Put('/u/:id')
+  async up(@Param('id') id: string): Promise<any> {
+    return this.msgservice.update(id);
+  }
 }

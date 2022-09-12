@@ -95,4 +95,27 @@ export class MessageService {
       await this.messageModel.findByIdAndUpdate(allmsg._id, allmsg);
     }
   }
+  async findByids(id: string): Promise<number> {
+    let somme = 0;
+    const allmsg = await this.messageModel.findOne({ idU: id });
+    if (allmsg.messages.length > 0) {
+      await allmsg.messages.forEach((i) => {
+        if (i.ids != 'admin' && i.visible == true) {
+          somme = somme + 1;
+        }
+      });
+    }
+    return somme;
+  }
+  async update(id: string): Promise<any> {
+    const allmsg = await this.messageModel.findOne({ idU: id });
+    if (allmsg.messages.length > 0) {
+      await allmsg.messages.forEach((i) => {
+        if (i.ids != 'admin' && i.visible == true) {
+          i.visible = false;
+        }
+      });
+    }
+    await this.messageModel.findByIdAndUpdate(allmsg._id, allmsg);
+  }
 }

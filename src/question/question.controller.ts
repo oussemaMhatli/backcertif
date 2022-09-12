@@ -30,6 +30,10 @@ export class QuestionController {
   async count(): Promise<number> {
     return await this.QService.count();
   }
+  @Get('/one/:id')
+  async find(@Param('id') id: string) {
+    return await this.QService.findOne(id);
+  }
   @Delete(':id')
   async deleteApp(@Param('id') id: string) {
     return await this.QService.dlete(id);

@@ -8,5 +8,5 @@ export const QuestionSchemas = new Schema({
   level: String,
   type: Number,
   choices: [],
-  correct:String,
+  correct: String,
 });

@@ -17,6 +17,9 @@ export class QuestionService {
       createdAt: new Date(),
     }).save();
   }
+  async findOne(id: string): Promise<any> {
+    return await this.QModel.findById(id).exec();
+  }
   async findAllC(): Promise<Question[]> {
     return await this.QModel.find().sort({ date: 'ascending' }).exec();
   }
