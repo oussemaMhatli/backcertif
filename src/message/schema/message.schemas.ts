@@ -8,6 +8,7 @@ export const MessagesSchema = new Schema({
       ids: String,
       dates: { type: Date, default: Date.now() },
       visible: { type: Boolean, default: true },
+      vis: { type: Boolean, default: true },
     },
   ],
 

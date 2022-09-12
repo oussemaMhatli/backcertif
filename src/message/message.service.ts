@@ -17,7 +17,7 @@ export class MessageService {
   }
   async pushmsg(id: string, mess: string, ids: string): Promise<any> {
     const msg = await this.messageModel.findById(id);
-    const messages = { msg: mess, ids: ids, visible: true };
+    const messages = { msg: mess, ids: ids, visible: true,vis:true };
     msg.messages.push(messages);
     return this.messageModel.findByIdAndUpdate(id, msg);
   }
@@ -90,6 +90,7 @@ export class MessageService {
       await allmsg.messages.forEach((i) => {
         if (i.ids == 'admin' && i.visible == true) {
           i.visible = false;
+
         }
       });
       await this.messageModel.findByIdAndUpdate(allmsg._id, allmsg);
@@ -100,7 +101,7 @@ export class MessageService {
     const allmsg = await this.messageModel.findOne({ idU: id });
     if (allmsg.messages.length > 0) {
       await allmsg.messages.forEach((i) => {
-        if (i.ids != 'admin' && i.visible == true) {
+        if (i.ids != 'admin' && i.vis == true) {
           somme = somme + 1;
         }
       });
@@ -111,8 +112,8 @@ export class MessageService {
     const allmsg = await this.messageModel.findOne({ idU: id });
     if (allmsg.messages.length > 0) {
       await allmsg.messages.forEach((i) => {
-        if (i.ids != 'admin' && i.visible == true) {
-          i.visible = false;
+        if (i.ids != 'admin' && i.vis == true) {
+          i.vis = false;
         }
       });
     }
