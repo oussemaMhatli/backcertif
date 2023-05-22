@@ -25,4 +25,8 @@ export class ResultController {
   async findOneuser(@Param('id') id: string): Promise<any> {
     return await this.RS.findbyuser(id);
   }
+  @Get('getByCat/:cat')
+  async findByCat(@Param('cat') cat: string): Promise<any> {
+    return await this.RS.findcat(cat);
+  }
 }

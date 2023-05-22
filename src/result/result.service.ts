@@ -26,5 +26,7 @@ export class ResultService {
   async findbyuser(id: string): Promise<any> {
     return this.result.find({userID:id}).exec();
   }
-
+  async findcat(cat: string): Promise<any> {
+    return this.result.find({ categori: cat }).exec();
+  }
 }

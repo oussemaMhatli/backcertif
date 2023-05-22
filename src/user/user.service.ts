@@ -138,10 +138,8 @@ export class UserService {
     const sended = await new Promise<boolean>(async function (resolve, reject) {
       return await transporter.sendMail(mailOptions, async (error, info) => {
         if (error) {
-          console.log('Message sent: %s', error);
           return reject(false);
         }
-        console.log('Message sent 1 : %s', info);
         resolve(true);
       });
     });
